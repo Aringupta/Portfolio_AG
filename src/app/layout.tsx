@@ -6,8 +6,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Sid Shah | Computer Engineering",
-    template: "%s | Sid Shah",
+    default: "Arin Gupta | Computer Engineering",
+    template: "%s | Arin Gupta",
   },
   description:
     "Computer Engineering senior at UMass Amherst. I build end-to-end systems across robotics, AI/perception, and software.",
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app"
   ),
   openGraph: {
-    title: "Sid Shah | Computer Engineering",
+    title: "Arin Gupta | Computer Engineering",
     description:
       "Computer Engineering senior at UMass Amherst. I build end-to-end systems across robotics, AI/perception, and software.",
-    siteName: "Sid Shah",
+    siteName: "Arin Gupta",
     locale: "en_US",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],

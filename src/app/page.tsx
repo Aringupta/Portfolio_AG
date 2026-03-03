@@ -17,7 +17,7 @@ export default function HomePage() {
               Computer Engineering @ UMass Amherst &middot; Graduating Spring 2026
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold text-text-primary dark:text-dark-text-primary leading-tight">
-              Sid Shah
+              Arin Gupta
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-text-secondary dark:text-dark-text-secondary max-w-2xl">
               I build end-to-end systems across robotics, AI/perception, and software.
@@ -25,7 +25,7 @@ export default function HomePage() {
           </div>
           <Image
             src="/profilephoto.jpg"
-            alt="Sid Shah"
+            alt="Arin Gupta"
             width={160}
             height={160}
             className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-2 border-border dark:border-dark-border shrink-0"

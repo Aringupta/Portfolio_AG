@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -10,15 +11,27 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
-        <p className="text-sm font-medium text-accent dark:text-dark-accent tracking-wide uppercase mb-4">
-          Computer Engineering @ UMass Amherst &middot; Graduating Spring 2026
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-bold text-text-primary dark:text-dark-text-primary leading-tight">
-          Arin Gupta
-        </h1>
-        <p className="mt-4 text-lg sm:text-xl text-text-secondary dark:text-dark-text-secondary max-w-2xl">
-          I build end-to-end systems across robotics, AI/perception, and software.
-        </p>
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-8 mb-2">
+          <div>
+            <p className="text-sm font-medium text-accent dark:text-dark-accent tracking-wide uppercase mb-4">
+              Computer Engineering @ UMass Amherst &middot; Graduating Spring 2026
+            </p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-text-primary dark:text-dark-text-primary leading-tight">
+              Arin Gupta
+            </h1>
+            <p className="mt-4 text-lg sm:text-xl text-text-secondary dark:text-dark-text-secondary max-w-2xl">
+              I build end-to-end systems across robotics, AI/perception, and software.
+            </p>
+          </div>
+          <Image
+            src="/profilephoto.jpg"
+            alt="Arin Gupta"
+            width={160}
+            height={160}
+            className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-2 border-border dark:border-dark-border shrink-0"
+            priority
+          />
+        </div>
 
         <ul className="mt-6 space-y-2 text-text-secondary dark:text-dark-text-secondary">
           <li className="flex items-start gap-2">

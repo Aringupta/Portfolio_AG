@@ -1,0 +1,73 @@
+---
+title: "Real-Time MOCAP Alignment Pipeline"
+slug: "mocap-pipeline"
+summary: "Built a sensor fusion pipeline that aligns motion capture data with robot joint states in real time, reducing pose estimation error by 42%."
+tags: ["Python", "ROS 2", "NumPy", "Rigid Body Transforms", "C++"]
+date: "2025-09-01"
+featured: true
+order: 1
+github: "https://github.com/yourusername/mocap-alignment"
+---
+
+## Problem
+
+Our lab's teleoperation system relied on a motion capture (MOCAP) rig to track a human operator's arm, but the MOCAP frame and the robot's base frame were never precisely aligned. This introduced 8-12 cm of positional drift during manipulation tasks, making fine-grained teleoperation unreliable.
+
+## Constraints
+
+- The alignment had to run online (< 10 ms per frame at 120 Hz MOCAP rate) — no offline batch processing
+- Could not modify the MOCAP hardware or marker placement; had to work with existing Optitrack setup
+- The robot's URDF had minor inaccuracies from wear, so pure kinematic alignment wasn't sufficient
+- Had to integrate into the existing ROS 2 control stack without breaking the real-time loop
+
+## Approach & Architecture
+
+```
+┌──────────────┐    ┌─────────────────┐    ┌───────────────────┐
+│  Optitrack   │───▶│  Frame Sync &   │───▶│  Incremental      │
+│  MOCAP Data  │    │  Timestamp      │    │  Calibration      │
+│  (120 Hz)    │    │  Alignment      │    │  (Procrustes +    │
+└──────────────┘    └─────────────────┘    │   Kalman Filter)  │
+                                           └────────┬──────────┘
+┌──────────────┐    ┌─────────────────┐             │
+│  Robot Joint │───▶│  Forward        │─────────────┘
+│  Encoders    │    │  Kinematics     │    ┌───────────────────┐
+│  (1 kHz)     │    │  (URDF + FK)    │───▶│  Aligned Pose     │
+└──────────────┘    └─────────────────┘    │  Publisher        │
+                                           │  (ROS 2 topic)    │
+                                           └───────────────────┘
+```
+
+The pipeline has three stages:
+
+1. **Frame Synchronization**: I wrote a time-alignment node that matches MOCAP frames to the nearest robot state using hardware timestamps, compensating for network jitter with a small circular buffer.
+
+2. **Incremental Calibration**: Instead of a one-shot calibration, I implemented an online Procrustes alignment that continuously refines the rigid-body transform between MOCAP and robot frames. A lightweight Kalman filter smooths the transform estimate, adapting to gradual drift from MOCAP recalibrations or robot base shifts.
+
+3. **Forward Kinematics Validation**: Each aligned pose is cross-checked against the robot's FK solution. If the residual exceeds a configurable threshold, the system flags the frame and falls back to the previous valid transform.
+
+## My Contributions
+
+- Designed and implemented the full pipeline from scratch (~2,800 lines of Python + 400 lines of C++ for the real-time node)
+- Wrote the incremental Procrustes solver with Kalman smoothing; benchmarked against SVD-based batch alignment
+- Built a ROS 2 lifecycle node so the calibration can be reset, paused, or saved without restarting the system
+- Created a visualization tool in RViz2 that overlays MOCAP markers on the robot model for live debugging
+- Wrote unit tests covering edge cases: occluded markers, frame drops, and singular configurations
+
+## Results
+
+- **42% reduction** in mean end-effector position error (from 10.3 cm to 5.9 cm)
+- **< 3 ms** per-frame processing latency (well within the 8.3 ms budget at 120 Hz)
+- Reduced calibration setup time from ~15 minutes (manual) to ~30 seconds (automated convergence)
+- Pipeline ran continuously for 6+ hour experiment sessions with zero dropped frames
+- Adopted by two other projects in the lab for their teleoperation setups
+
+## Tech Stack
+
+Python, C++, ROS 2 (Humble), NumPy, SciPy, Eigen, Optitrack Motive SDK, RViz2
+
+## What I'd Do Next
+
+- Replace the Kalman filter with a factor graph (GTSAM) for better multi-sensor fusion if we add IMU data
+- Port the critical path to C++ entirely to hit 240 Hz for higher-speed manipulation tasks
+- Add automatic detection of marker occlusion patterns to improve robustness during fast motions

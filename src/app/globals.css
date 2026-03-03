@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+ * Design System Tokens
+ * --------------------
+ * Consistent spacing, colors, and typography for the entire site.
+ * Edit these custom properties to change the look globally.
+ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  --color-surface-0: #ffffff;
+  --color-surface-1: #f8f9fa;
+  --color-surface-2: #f1f3f5;
+  --color-border: #dee2e6;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #495057;
+  --color-text-muted: #868e96;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-light: #dbeafe;
+
+  --color-dark-surface-0: #0f0f17;
+  --color-dark-surface-1: #1a1a2e;
+  --color-dark-surface-2: #25253d;
+  --color-dark-border: #2e2e4a;
+  --color-dark-text-primary: #e8e8ed;
+  --color-dark-text-secondary: #a0a0b8;
+  --color-dark-text-muted: #6b6b85;
+  --color-dark-accent: #60a5fa;
+  --color-dark-accent-hover: #93bbfd;
+  --color-dark-accent-light: #1e3a5f;
+}
+
+/* Base layer: light and dark mode background/text */
+body {
+  @apply bg-surface-0 text-text-primary antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.dark body,
+body:where(.dark *) {
+  background-color: var(--color-dark-surface-0);
+  color: var(--color-dark-text-primary);
+}
+
+/* Focus ring utility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent rounded-sm;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-accent-light text-accent;
+}
+
+.dark ::selection {
+  background-color: var(--color-dark-accent-light);
+  color: var(--color-dark-accent);
+}
+
+/* Prose overrides for dark mode */
+.dark .prose {
+  --tw-prose-body: var(--color-dark-text-secondary);
+  --tw-prose-headings: var(--color-dark-text-primary);
+  --tw-prose-links: var(--color-dark-accent);
+  --tw-prose-bold: var(--color-dark-text-primary);
+  --tw-prose-counters: var(--color-dark-text-muted);
+  --tw-prose-bullets: var(--color-dark-text-muted);
+  --tw-prose-hr: var(--color-dark-border);
+  --tw-prose-quotes: var(--color-dark-text-secondary);
+  --tw-prose-code: var(--color-dark-text-primary);
+  --tw-prose-pre-bg: var(--color-dark-surface-2);
+  --tw-prose-pre-code: var(--color-dark-text-primary);
+  --tw-prose-th-borders: var(--color-dark-border);
+  --tw-prose-td-borders: var(--color-dark-border);
+}

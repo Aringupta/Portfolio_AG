@@ -1,0 +1,81 @@
+---
+title: "RL Grid Navigation: Value Iteration & Q-Learning"
+slug: "rl-navigation"
+summary: "Implemented and evaluated value iteration and Q-learning agents on stochastic grid worlds, analyzing convergence behavior and policy quality across environment complexity."
+tags: ["Python", "NumPy", "Reinforcement Learning", "Matplotlib"]
+date: "2025-04-01"
+featured: true
+order: 2
+github: "https://github.com/yourusername/rl-grid-navigation"
+---
+
+## Problem
+
+For a graduate-level AI course, I needed to implement classical RL algorithms from scratch and rigorously evaluate their behavior — not just "does it solve the maze" but how convergence speed, policy stability, and computational cost scale with environment complexity.
+
+## Constraints
+
+- No RL libraries (no Gymnasium, no Stable Baselines) — implement the MDP solver and learning algorithms from NumPy primitives
+- Must handle stochastic transitions (the agent slips with configurable probability)
+- Evaluation had to include quantitative convergence analysis, not just qualitative "it works" screenshots
+- Code had to be clean enough for the professor to read and grade
+
+## Approach & Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                   Environment Layer                  │
+│  GridWorld(rows, cols, walls, slip_prob, rewards)    │
+│  ├── transition_model() → T[s, a, s']               │
+│  ├── reward_model() → R[s, a]                       │
+│  └── render() → ASCII / Matplotlib visualization    │
+├─────────────────────────────────────────────────────┤
+│                    Agent Layer                        │
+│  ├── ValueIterationAgent                             │
+│  │   └── Bellman backup until ΔV < ε                │
+│  └── QLearningAgent                                  │
+│      └── ε-greedy exploration, α decay, γ config    │
+├─────────────────────────────────────────────────────┤
+│                  Evaluation Layer                     │
+│  ├── convergence_curve(iterations vs ΔV)             │
+│  ├── policy_diff(optimal_policy, learned_policy)     │
+│  ├── reward_over_episodes(smoothed)                  │
+│  └── heatmap(V or Q values)                          │
+└─────────────────────────────────────────────────────┘
+```
+
+**Value Iteration**: I built the full MDP model (transition tensor + reward vector) and ran synchronous Bellman backups. The key insight was precomputing the transition tensor as a sparse matrix, which made each backup O(|S| * |A| * k) where k is the average number of reachable next-states per action — much faster than naive iteration.
+
+**Q-Learning**: For the model-free approach, I implemented tabular Q-learning with epsilon-greedy exploration, learning rate decay, and experience tracking. I spent significant time tuning the exploration schedule — a simple linear decay from ε=1.0 to ε=0.05 over 70% of episodes worked better than more complex schedules.
+
+## My Contributions
+
+- Implemented both algorithms entirely from scratch (~1,200 lines of well-documented Python)
+- Built a configurable grid world generator that can produce environments of arbitrary size with walls, traps, and variable slip probabilities
+- Created a comprehensive evaluation framework that produces publication-quality convergence plots
+- Ran a systematic comparison across 5 environment sizes (5x5 to 25x25) and 4 slip probabilities (0, 0.1, 0.2, 0.3)
+- Wrote analysis explaining why Q-learning's convergence degrades disproportionately on larger grids with high stochasticity
+
+## Results
+
+| Metric | Value Iteration | Q-Learning |
+|--------|----------------|------------|
+| 5x5 convergence | 23 iterations | ~800 episodes |
+| 15x15 convergence | 47 iterations | ~12,000 episodes |
+| 25x25 convergence | 89 iterations | ~45,000 episodes |
+| Policy match (15x15, slip=0.1) | optimal (by definition) | 96.2% of states |
+| Wall-clock time (15x15) | 0.3s | 8.2s |
+
+- Value iteration converges in O(|S|) iterations regardless of stochasticity — confirming the theoretical bound
+- Q-learning's sample complexity grows roughly quadratically with state space size under stochastic transitions
+- Identified that Q-learning's policy was suboptimal mainly near walls where the slip dynamics create ambiguous value landscapes
+
+## Tech Stack
+
+Python, NumPy, Matplotlib, SciPy (sparse matrices)
+
+## What I'd Do Next
+
+- Implement Deep Q-Networks to see how function approximation handles the scaling problem
+- Add prioritized sweeping to value iteration to see if it converges faster on sparse reward environments
+- Try Monte Carlo Tree Search as a third comparison point for planning vs. learning tradeoffs

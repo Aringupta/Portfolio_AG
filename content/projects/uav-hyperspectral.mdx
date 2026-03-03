@@ -1,0 +1,81 @@
+---
+title: "UAV Hyperspectral Imaging Pipeline"
+slug: "uav-hyperspectral"
+summary: "Senior design capstone: built the end-to-end data pipeline for a UAV-mounted hyperspectral camera system, from flight planning to georeferenced spectral maps."
+tags: ["Python", "GDAL", "OpenCV", "Embedded Linux", "GPS/IMU", "React"]
+date: "2025-12-01"
+featured: true
+order: 3
+github: "https://github.com/yourusername/uav-hyperspectral"
+---
+
+## Problem
+
+UMass researchers studying crop health needed a way to capture hyperspectral imagery from a drone, georeference each scan line to GPS coordinates, and produce spectral index maps (NDVI, chlorophyll) — all without commercial software licenses costing $15k+. Our senior design team of four built this as a full open-source alternative.
+
+## Constraints
+
+- The hyperspectral camera (Headwall Nano) produces push-broom scans — each frame is a single spatial line × 270 spectral bands, not a 2D image. Reconstruction requires precise IMU/GPS fusion.
+- Processing had to work on a Jetson Nano companion computer during flight for real-time preview, with full pipeline processing post-flight on a standard laptop
+- Budget: $500 for additional hardware beyond the existing drone and camera
+- Deliverable to a non-technical research group — the interface had to be approachable
+- Timeline: two semesters (Sep 2025 – May 2026)
+
+## Approach & Architecture
+
+```
+┌─────────────┐   ┌──────────────┐   ┌─────────────────┐
+│  Headwall   │──▶│  Jetson Nano │──▶│  Raw Data Store  │
+│  Nano HSI   │   │  (capture +  │   │  (.raw + .nav)   │
+│  Camera     │   │   preview)   │   │                  │
+└─────────────┘   └──────────────┘   └────────┬────────┘
+                                               │
+┌─────────────┐   ┌──────────────┐   ┌────────▼────────┐
+│  GPS/IMU    │──▶│  Nav Sync    │──▶│  Georeferencing  │
+│  (Emlid M2) │   │  Module      │   │  Engine          │
+└─────────────┘   └──────────────┘   │  (ray-casting +  │
+                                     │   ortho-mosaic)  │
+                                     └────────┬────────┘
+                                              │
+                  ┌──────────────┐   ┌────────▼────────┐
+                  │  Web Viewer  │◀──│  Spectral Index  │
+                  │  (React +    │   │  Calculator      │
+                  │   Leaflet)   │   │  (NDVI, GNDVI,   │
+                  └──────────────┘   │   chlorophyll)   │
+                                     └─────────────────┘
+```
+
+The pipeline has four major subsystems:
+
+1. **Capture**: A Python service on the Jetson Nano triggers camera acquisition synchronized with GPS timestamps. I wrote the driver interface using the camera's SDK and a circular buffer to handle the 150 MB/s data rate.
+
+2. **Navigation Sync**: Post-flight, we interpolate GPS/IMU data to match each scan line's timestamp. I implemented a Slerp-based attitude interpolation for smooth orientation estimates between IMU samples.
+
+3. **Georeferencing**: Each scan line is projected onto a DEM (digital elevation model) using ray-casting from the camera's position and orientation. The output is a georeferenced hyperspectral datacube in ENVI format.
+
+4. **Visualization**: A React web app lets researchers load processed datasets, compute spectral indices interactively, and overlay results on satellite basemaps via Leaflet.
+
+## My Contributions
+
+- **Pipeline architecture**: Designed the overall data flow and file format conventions. Wrote the specification document that the team used to build in parallel.
+- **Georeferencing engine**: Implemented the core ray-casting algorithm (~1,500 lines of Python + GDAL). This was the hardest part — handling edge cases like steep terrain, camera gimbal drift, and scan line overlap required careful geometry.
+- **Navigation sync module**: Wrote the timestamp matching and attitude interpolation logic, including outlier rejection for GPS jumps.
+- **Integration lead**: Owned the end-to-end testing process, built the CI pipeline, and wrote integration tests that validate outputs against a known-good commercial dataset.
+
+## Results
+
+- Georeferencing accuracy within **1.2 m** (compared to 0.8 m from the $15k commercial software — acceptable for agricultural applications)
+- Full pipeline processes a 20-minute flight dataset in **~14 minutes** on a laptop with 16 GB RAM
+- Web viewer loads a 2 GB datacube in **< 3 seconds** using chunked loading
+- Delivered to the UMass Precision Agriculture Lab; currently being used in their Spring 2026 field season
+- Presented at the UMass ECE Senior Design Expo (Spring 2026)
+
+## Tech Stack
+
+Python, GDAL/Rasterio, OpenCV, NumPy, React, Leaflet, Embedded Linux (Jetson Nano), Headwall SDK, ENVI format, GitHub Actions CI
+
+## What I'd Do Next
+
+- Add real-time georeferencing on the Jetson Nano so researchers get a live preview during flight
+- Implement radiometric calibration (reflectance panel normalization) to make spectral indices comparable across flights
+- Build an anomaly detection layer that flags potential crop stress regions automatically using unsupervised clustering

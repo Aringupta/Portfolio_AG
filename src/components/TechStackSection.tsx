@@ -66,11 +66,11 @@ export function TechStackSection() {
         </h2>
 
         {/* Tech grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-y-8 gap-x-4 justify-items-center">
+        <div className="flex flex-wrap justify-center gap-y-8 gap-x-4">
           {TECH_STACK.map((tech) => (
             <div
               key={tech.name}
-              className="group flex flex-col items-center gap-2 transition-transform duration-200 hover:-translate-y-0.5"
+              className="group flex flex-col items-center gap-2 w-[calc(33.333%-12px)] sm:w-[calc(20%-14px)] lg:w-[calc(10%-14px)] transition-transform duration-200 hover:-translate-y-0.5"
             >
               <div className="w-12 h-12 flex items-center justify-center rounded-lg transition-shadow duration-200 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.1)]">
                 <Image

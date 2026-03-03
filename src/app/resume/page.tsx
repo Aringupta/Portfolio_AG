@@ -5,7 +5,7 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   title: "Resume",
-  description: "Resume and key highlights — Arin Gupta, Computer Engineering @ UMass Amherst.",
+  description: "Resume and key highlights — Sid Shah, Computer Engineering @ UMass Amherst.",
   path: "/resume",
 });
 

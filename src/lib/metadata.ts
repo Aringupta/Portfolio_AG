@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app";
-const SITE_NAME = "Arin Gupta";
+const SITE_NAME = "Sid Shah";
 
 export function createMetadata({
   title,

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Computer Engineering senior at UMass Amherst. I build end-to-end systems across robotics, AI/perception, and software.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://yourname.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app"
   ),
   openGraph: {
     title: "Arin Gupta | Computer Engineering",

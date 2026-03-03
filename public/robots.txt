@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourname.vercel.app/sitemap.xml
+Sitemap: https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/sitemap.xml

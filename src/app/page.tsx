@@ -42,13 +42,13 @@ export default function HomePage() {
           <Button href="/projects" variant="secondary" size="lg">
             Projects
           </Button>
-          <Button href="https://github.com/yourusername" external variant="ghost" size="lg">
+          <Button href="https://github.com/Aringupta" external variant="ghost" size="lg">
             GitHub
           </Button>
-          <Button href="https://linkedin.com/in/yourusername" external variant="ghost" size="lg">
+          <Button href="https://www.linkedin.com/in/aringupta/" external variant="ghost" size="lg">
             LinkedIn
           </Button>
-          <Button href="mailto:your.email@umass.edu" external variant="ghost" size="lg">
+          <Button href="mailto:arinvgupta@gmail.com" external variant="ghost" size="lg">
             Email
           </Button>
         </div>

@@ -28,7 +28,7 @@ export function ContactForm() {
       `From: ${name} (${email})\n\n${message}`
     );
 
-    window.location.href = `mailto:your.email@umass.edu?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:arinvgupta@gmail.com?subject=${subject}&body=${body}`;
     setState({ status: "sent" });
     form.reset();
   }
@@ -120,7 +120,7 @@ export function ContactForm() {
 
       {state.status === "sent" && (
         <p className="text-sm text-green-600 dark:text-green-400">
-          Your default mail client should have opened. If not, email me directly at your.email@umass.edu.
+          Your default mail client should have opened. If not, email me directly at arinvgupta@gmail.com.
         </p>
       )}
     </form>

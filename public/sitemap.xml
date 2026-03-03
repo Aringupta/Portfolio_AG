@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yourname.vercel.app</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/projects</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/projects</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/projects/mocap-pipeline</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/projects/mocap-pipeline</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/projects/rl-navigation</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/projects/rl-navigation</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/projects/uav-hyperspectral</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/projects/uav-hyperspectral</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/projects/distributed-task-engine</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/projects/distributed-task-engine</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/about</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/about</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/resume</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/resume</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourname.vercel.app/contact</loc>
+    <loc>https://portfolio-angvuagqa-arinvgupta-1133s-projects.vercel.app/contact</loc>
     <lastmod>2026-03-01</lastmod>
     <priority>0.6</priority>
   </url>

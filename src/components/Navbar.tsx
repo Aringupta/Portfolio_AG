@@ -28,7 +28,7 @@ export function Navbar() {
         <Link
           href="/"
           className="text-sm font-mono font-semibold text-text-primary dark:text-dark-text-primary
-            hover:text-accent dark:hover:text-dark-accent transition-colors"
+            hover:text-text-secondary dark:hover:text-dark-text-secondary transition-colors"
         >
           AG
         </Link>

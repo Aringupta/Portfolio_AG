@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
 
           <h3
-            className="text-base font-semibold text-text-primary dark:text-dark-text-primary
+            className="text-base font-semibold text-text-secondary dark:text-dark-text-secondary
             group-hover:text-accent dark:group-hover:text-dark-accent transition-colors"
           >
             {project.title}

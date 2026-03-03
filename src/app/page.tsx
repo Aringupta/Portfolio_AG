@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getFeaturedProjects } from "@/lib/projects";
+import { TechStackSection } from "@/components/TechStackSection";
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
@@ -88,6 +89,9 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
+
+      {/* Tech Stack */}
+      <TechStackSection />
 
       {/* Quick About */}
       <section className="mx-auto max-w-4xl px-6 py-20">

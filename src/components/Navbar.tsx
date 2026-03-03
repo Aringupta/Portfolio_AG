@@ -30,7 +30,7 @@ export function Navbar() {
           className="text-lg font-bold text-text-primary dark:text-dark-text-primary
             hover:text-accent dark:hover:text-dark-accent transition-colors"
         >
-          AV
+          AG
         </Link>
 
         {/* Desktop links */}

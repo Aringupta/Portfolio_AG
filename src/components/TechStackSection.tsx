@@ -7,7 +7,7 @@ interface TechItem {
 
 const TECH_STACK: TechItem[] = [
   { name: "Python", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "SQL", iconUrl: "https://img.icons8.com/external-bearicons-blue-bearicons/96/external-SQL-file-types-bearicons-blue-bearicons.png" },
+  { name: "SQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" },
   { name: "Java", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
   { name: "Pandas", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
   { name: "NumPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
@@ -29,7 +29,7 @@ const TECH_STACK: TechItem[] = [
   { name: "Airflow", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg" },
   { name: "dbt", iconUrl: "https://seeklogo.com/images/D/dbt-logo-E4B0ED72A2-seeklogo.com.png" },
   { name: "Hadoop", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg" },
-  { name: "Snowflake", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/snowflake/snowflake-original.svg" },
+  { name: "Snowflake", iconUrl: "https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" },
   { name: "PostgreSQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
   { name: "MongoDB", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
 ];

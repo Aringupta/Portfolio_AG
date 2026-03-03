@@ -16,25 +16,30 @@
 
   --color-surface-0: #ffffff;
   --color-surface-1: #f8f9fa;
-  --color-surface-2: #f1f3f5;
+  --color-surface-2: #eef0f4;
   --color-border: #dee2e6;
   --color-text-primary: #1a1a2e;
   --color-text-secondary: #495057;
   --color-text-muted: #868e96;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-light: #dbeafe;
+  --color-accent: #3b5bdb;
+  --color-accent-hover: #364fc7;
+  --color-accent-light: #edf2ff;
 
-  --color-dark-surface-0: #0f0f17;
-  --color-dark-surface-1: #1a1a2e;
-  --color-dark-surface-2: #25253d;
+  --color-dark-surface-0: #0d0d14;
+  --color-dark-surface-1: #161625;
+  --color-dark-surface-2: #1f1f35;
   --color-dark-border: #2e2e4a;
   --color-dark-text-primary: #e8e8ed;
   --color-dark-text-secondary: #a0a0b8;
   --color-dark-text-muted: #6b6b85;
-  --color-dark-accent: #60a5fa;
-  --color-dark-accent-hover: #93bbfd;
-  --color-dark-accent-light: #1e3a5f;
+  --color-dark-accent: #91a7ff;
+  --color-dark-accent-hover: #bac8ff;
+  --color-dark-accent-light: #1b2559;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-dark-sm: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-dark-md: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Base layer: light and dark mode background/text */
@@ -47,6 +52,35 @@ body {
 body:where(.dark *) {
   background-color: var(--color-dark-surface-0);
   color: var(--color-dark-text-primary);
+}
+
+/* Subtle background glow — barely-visible radial gradient at page top */
+body::before {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 50%;
+  background: radial-gradient(ellipse at center, var(--color-accent-light) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dark body::before {
+  background: radial-gradient(ellipse at center, var(--color-dark-accent-light) 0%, transparent 70%);
+  opacity: 0.3;
+}
+
+/* Heading letter-spacing */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  letter-spacing: -0.03em;
 }
 
 /* Focus ring utility */

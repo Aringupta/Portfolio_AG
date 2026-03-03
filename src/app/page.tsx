@@ -10,16 +10,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
-        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-8 mb-2">
+      <section className="mx-auto max-w-4xl px-6 pt-24 pb-16 sm:pt-32 sm:pb-20">
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-10 mb-2">
           <div>
-            <p className="text-sm font-medium text-accent dark:text-dark-accent tracking-wide uppercase mb-4">
+            <p className="text-xs font-mono text-text-muted dark:text-dark-text-muted tracking-wider uppercase mb-4">
               Computer Engineering @ UMass Amherst &middot; Graduating Spring 2026
             </p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-text-primary dark:text-dark-text-primary leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-semibold text-text-primary dark:text-dark-text-primary leading-[1.1] tracking-tight">
               Arin Gupta
             </h1>
-            <p className="mt-4 text-lg sm:text-xl text-text-secondary dark:text-dark-text-secondary max-w-2xl">
+            <p className="mt-4 text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary max-w-xl leading-relaxed">
               I build end-to-end systems across robotics, AI/perception, and software.
             </p>
           </div>
@@ -33,17 +33,17 @@ export default function HomePage() {
           />
         </div>
 
-        <ul className="mt-6 space-y-2 text-text-secondary dark:text-dark-text-secondary">
+        <ul className="mt-6 space-y-2 text-sm text-text-secondary dark:text-dark-text-secondary">
           <li className="flex items-start gap-2">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent dark:bg-dark-accent shrink-0" />
+            <span className="mt-1.5 w-1 h-1 rounded-full bg-text-muted dark:bg-dark-text-muted shrink-0" />
             Systems thinker: I design at the architecture level, then build each piece
           </li>
           <li className="flex items-start gap-2">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent dark:bg-dark-accent shrink-0" />
+            <span className="mt-1.5 w-1 h-1 rounded-full bg-text-muted dark:bg-dark-text-muted shrink-0" />
             Pipeline builder: sensor fusion, data processing, deployment automation
           </li>
           <li className="flex items-start gap-2">
-            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent dark:bg-dark-accent shrink-0" />
+            <span className="mt-1.5 w-1 h-1 rounded-full bg-text-muted dark:bg-dark-text-muted shrink-0" />
             Shipper: I work through ambiguity and deliver working systems
           </li>
         </ul>
@@ -68,13 +68,13 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <section className="mx-auto max-w-4xl px-6 py-20">
         <SectionHeader
           label="Featured Work"
           title="Selected Projects"
           description="Engineering projects with real depth — click any card to read the full case study."
         />
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {featured.map((project) => (
             <ProjectCard
               key={project.frontmatter.slug}
@@ -90,9 +90,9 @@ export default function HomePage() {
       </section>
 
       {/* Quick About */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <section className="mx-auto max-w-4xl px-6 py-20">
         <SectionHeader label="About" title="A Bit About Me" />
-        <div className="max-w-2xl space-y-4 text-text-secondary dark:text-dark-text-secondary">
+        <div className="max-w-xl space-y-4 text-text-secondary dark:text-dark-text-secondary leading-relaxed">
           <p>
             I&apos;m a Computer Engineering senior at UMass Amherst with a focus on
             robotics perception and systems software. I care most about building

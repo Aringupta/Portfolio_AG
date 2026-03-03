@@ -47,7 +47,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const { frontmatter, content } = project;
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <article className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
       {/* Back link */}
       <Button href="/projects" variant="ghost" size="sm" className="mb-8">
         <svg
@@ -68,10 +68,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       {/* Header */}
       <header className="mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-text-primary dark:text-dark-text-primary leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-semibold text-text-primary dark:text-dark-text-primary leading-tight tracking-tight">
           {frontmatter.title}
         </h1>
-        <p className="mt-3 text-lg text-text-secondary dark:text-dark-text-secondary">
+        <p className="mt-3 text-base text-text-secondary dark:text-dark-text-secondary leading-relaxed">
           {frontmatter.summary}
         </p>
         <div className="mt-4 flex flex-wrap gap-1.5">

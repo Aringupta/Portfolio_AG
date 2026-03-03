@@ -11,14 +11,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <article className="group relative">
       <Link
         href={`/projects/${project.slug}`}
-        className="block rounded-xl border border-border bg-surface-0 p-6
+        className="block rounded-lg border border-border bg-surface-0 p-5
+          shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]
           dark:border-dark-border dark:bg-dark-surface-1
-          hover:border-accent/40 dark:hover:border-dark-accent/40
+          dark:shadow-[var(--shadow-dark-sm)] dark:hover:shadow-[var(--shadow-dark-md)]
           transition-all duration-200 h-full"
       >
         <div className="flex flex-col h-full">
+          {project.date && (
+            <span className="text-[11px] font-mono text-text-muted dark:text-dark-text-muted mb-2">
+              {project.date}
+            </span>
+          )}
+
           <h3
-            className="text-lg font-semibold text-text-primary dark:text-dark-text-primary
+            className="text-base font-semibold text-text-primary dark:text-dark-text-primary
             group-hover:text-accent dark:group-hover:text-dark-accent transition-colors"
           >
             {project.title}
@@ -38,8 +45,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           <div
-            className="mt-4 text-sm font-medium text-accent dark:text-dark-accent
-            flex items-center gap-1"
+            className="mt-4 text-sm font-mono font-medium text-text-muted dark:text-dark-text-muted
+            group-hover:text-accent dark:group-hover:text-dark-accent
+            flex items-center gap-1 transition-colors"
           >
             Read case study
             <svg

@@ -19,7 +19,7 @@ const HIGHLIGHTS = [
 
 export default function ResumePage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <div className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
       <SectionHeader
         label="Resume"
         title="Resume & Highlights"
@@ -70,7 +70,7 @@ export default function ResumePage() {
           Full Resume
         </h3>
         <div
-          className="rounded-xl border border-border dark:border-dark-border overflow-hidden
+          className="rounded-lg border border-border dark:border-dark-border overflow-hidden
             bg-surface-1 dark:bg-dark-surface-1"
         >
           <iframe

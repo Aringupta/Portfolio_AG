@@ -11,7 +11,7 @@ export const metadata = createMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <div className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
       <SectionHeader
         label="Contact"
         title="Let's Connect"

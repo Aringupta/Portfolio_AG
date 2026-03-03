@@ -37,9 +37,9 @@ export function Footer() {
       className="border-t border-border dark:border-dark-border mt-24"
       role="contentinfo"
     >
-      <div className="mx-auto max-w-5xl px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-auto max-w-4xl px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-text-muted dark:text-dark-text-muted">
-          Built with Next.js & Tailwind CSS
+          &copy; {new Date().getFullYear()} Arin Gupta
         </p>
 
         <div className="flex items-center gap-4">

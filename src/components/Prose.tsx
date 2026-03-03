@@ -9,10 +9,11 @@ export function Prose({ children, className = "" }: ProseProps) {
   return (
     <div
       className={`prose prose-neutral max-w-none
-        prose-headings:font-semibold
+        prose-headings:font-semibold prose-headings:tracking-tight
         prose-headings:text-text-primary dark:prose-headings:text-dark-text-primary
         prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary
-        prose-a:text-accent dark:prose-a:text-dark-accent prose-a:no-underline hover:prose-a:underline
+        prose-a:text-accent dark:prose-a:text-dark-accent prose-a:underline prose-a:decoration-accent/30 hover:prose-a:decoration-accent
+        dark:prose-a:decoration-dark-accent/30 dark:hover:prose-a:decoration-dark-accent
         prose-strong:text-text-primary dark:prose-strong:text-dark-text-primary
         prose-code:text-sm prose-code:bg-surface-2 dark:prose-code:bg-dark-surface-2
         prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded

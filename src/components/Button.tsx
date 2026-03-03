@@ -14,9 +14,9 @@ interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-accent text-white hover:bg-accent-hover dark:bg-dark-accent dark:text-dark-surface-0 dark:hover:bg-dark-accent-hover",
+    "bg-accent text-white hover:bg-accent-hover shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] dark:bg-dark-accent dark:text-dark-surface-0 dark:hover:bg-dark-accent-hover dark:shadow-[var(--shadow-dark-sm)] dark:hover:shadow-[var(--shadow-dark-md)]",
   secondary:
-    "bg-surface-2 text-text-primary hover:bg-border dark:bg-dark-surface-2 dark:text-dark-text-primary dark:hover:bg-dark-border",
+    "bg-surface-2 text-text-primary border border-border hover:bg-border dark:bg-dark-surface-2 dark:text-dark-text-primary dark:border-dark-border dark:hover:bg-dark-border",
   ghost:
     "text-text-secondary hover:text-text-primary hover:bg-surface-2 dark:text-dark-text-secondary dark:hover:text-dark-text-primary dark:hover:bg-dark-surface-2",
 };
@@ -24,7 +24,7 @@ const variantStyles: Record<Variant, string> = {
 const sizeStyles: Record<Size, string> = {
   sm: "px-3 py-1.5 text-sm",
   md: "px-4 py-2 text-sm",
-  lg: "px-6 py-3 text-base",
+  lg: "px-5 py-2.5 text-sm",
 };
 
 export function Button({
@@ -36,8 +36,8 @@ export function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-medium
-    transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-md font-medium
+    transition-all ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (external) {
     return (

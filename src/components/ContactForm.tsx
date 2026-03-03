@@ -53,11 +53,12 @@ export function ContactForm() {
           id="name"
           name="name"
           required
-          className="w-full rounded-lg border border-border bg-surface-0 px-4 py-2.5 text-sm
+          className="w-full rounded-md border border-border bg-surface-0 px-4 py-2.5 text-sm
             text-text-primary placeholder:text-text-muted
             dark:border-dark-border dark:bg-dark-surface-1 dark:text-dark-text-primary
             dark:placeholder:text-dark-text-muted
-            focus:outline-none focus:ring-2 focus:ring-accent/50 dark:focus:ring-dark-accent/50
+            focus:outline-none focus:ring-1 focus:ring-accent/40 focus:border-accent/40
+            dark:focus:ring-dark-accent/40 dark:focus:border-dark-accent/40
             transition-colors"
           placeholder="Your name"
         />
@@ -75,11 +76,12 @@ export function ContactForm() {
           id="email"
           name="email"
           required
-          className="w-full rounded-lg border border-border bg-surface-0 px-4 py-2.5 text-sm
+          className="w-full rounded-md border border-border bg-surface-0 px-4 py-2.5 text-sm
             text-text-primary placeholder:text-text-muted
             dark:border-dark-border dark:bg-dark-surface-1 dark:text-dark-text-primary
             dark:placeholder:text-dark-text-muted
-            focus:outline-none focus:ring-2 focus:ring-accent/50 dark:focus:ring-dark-accent/50
+            focus:outline-none focus:ring-1 focus:ring-accent/40 focus:border-accent/40
+            dark:focus:ring-dark-accent/40 dark:focus:border-dark-accent/40
             transition-colors"
           placeholder="you@example.com"
         />
@@ -97,11 +99,12 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full rounded-lg border border-border bg-surface-0 px-4 py-2.5 text-sm
+          className="w-full rounded-md border border-border bg-surface-0 px-4 py-2.5 text-sm
             text-text-primary placeholder:text-text-muted
             dark:border-dark-border dark:bg-dark-surface-1 dark:text-dark-text-primary
             dark:placeholder:text-dark-text-muted
-            focus:outline-none focus:ring-2 focus:ring-accent/50 dark:focus:ring-dark-accent/50
+            focus:outline-none focus:ring-1 focus:ring-accent/40 focus:border-accent/40
+            dark:focus:ring-dark-accent/40 dark:focus:border-dark-accent/40
             transition-colors resize-y"
           placeholder="What's on your mind?"
         />
@@ -110,10 +113,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={state.status === "sending"}
-        className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-2.5
+        className="inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5
           text-sm font-medium bg-accent text-white hover:bg-accent-hover
+          shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]
           dark:bg-dark-accent dark:text-dark-surface-0 dark:hover:bg-dark-accent-hover
-          transition-colors disabled:opacity-60"
+          dark:shadow-[var(--shadow-dark-sm)] dark:hover:shadow-[var(--shadow-dark-md)]
+          transition-all disabled:opacity-60"
       >
         {state.status === "sending" ? "Opening mail client..." : "Send Message"}
       </button>

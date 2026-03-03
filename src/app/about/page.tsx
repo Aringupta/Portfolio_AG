@@ -35,10 +35,10 @@ const TRADEOFFS = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <div className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
       {/* Story */}
       <SectionHeader label="About" title="Who I Am" />
-      <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary mb-16">
+      <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-16">
         <p>
           I&apos;m a Computer Engineering senior at UMass Amherst, graduating in
           Spring 2026. I got into engineering because I wanted to build things
@@ -72,7 +72,7 @@ export default function AboutPage() {
       <div className="grid gap-4 sm:grid-cols-2 mb-16">
         {TRADEOFFS.map(({ title, description }) => (
           <Card key={title}>
-            <h3 className="font-semibold text-text-primary dark:text-dark-text-primary mb-2">
+            <h3 className="font-semibold text-sm text-text-primary dark:text-dark-text-primary mb-2">
               {title}
             </h3>
             <p className="text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed">
@@ -84,7 +84,7 @@ export default function AboutPage() {
 
       {/* Outside Engineering */}
       <SectionHeader label="Beyond Code" title="When I'm Not Engineering" />
-      <p className="text-text-secondary dark:text-dark-text-secondary mb-8">
+      <p className="text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-8">
         I play pickup basketball, tinker with mechanical keyboards, and
         occasionally disappear into long Wikipedia rabbit holes about
         space exploration history. I also enjoy cooking — it&apos;s the closest

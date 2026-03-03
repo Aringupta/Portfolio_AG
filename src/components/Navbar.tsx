@@ -24,10 +24,10 @@ export function Navbar() {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="mx-auto max-w-5xl px-6 flex items-center justify-between h-16">
+      <div className="mx-auto max-w-4xl px-6 flex items-center justify-between h-14">
         <Link
           href="/"
-          className="text-lg font-bold text-text-primary dark:text-dark-text-primary
+          className="text-sm font-mono font-semibold text-text-primary dark:text-dark-text-primary
             hover:text-accent dark:hover:text-dark-accent transition-colors"
         >
           AG
@@ -42,10 +42,10 @@ export function Navbar() {
               <Link
                 key={href}
                 href={href}
-                className={`px-3 py-2 text-sm rounded-lg transition-colors ${
+                className={`px-3 py-1.5 text-sm rounded-md transition-colors ${
                   isActive
-                    ? "text-accent dark:text-dark-accent font-medium"
-                    : "text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary"
+                    ? "bg-surface-2 dark:bg-dark-surface-2 text-text-primary dark:text-dark-text-primary font-medium"
+                    : "text-text-muted dark:text-dark-text-muted hover:text-text-primary dark:hover:text-dark-text-primary"
                 }`}
               >
                 {label}
@@ -62,7 +62,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="w-9 h-9 flex items-center justify-center rounded-lg
+            className="w-9 h-9 flex items-center justify-center rounded-md
               text-text-secondary hover:text-text-primary hover:bg-surface-2
               dark:text-dark-text-secondary dark:hover:text-dark-text-primary dark:hover:bg-dark-surface-2
               transition-colors"
@@ -97,10 +97,10 @@ export function Navbar() {
                 key={href}
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className={`block px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                className={`block px-3 py-2.5 rounded-md text-sm transition-colors ${
                   isActive
-                    ? "text-accent dark:text-dark-accent font-medium bg-accent-light/50 dark:bg-dark-accent-light/50"
-                    : "text-text-secondary dark:text-dark-text-secondary hover:text-text-primary dark:hover:text-dark-text-primary"
+                    ? "bg-surface-2 dark:bg-dark-surface-2 text-text-primary dark:text-dark-text-primary font-medium"
+                    : "text-text-muted dark:text-dark-text-muted hover:text-text-primary dark:hover:text-dark-text-primary"
                 }`}
               >
                 {label}

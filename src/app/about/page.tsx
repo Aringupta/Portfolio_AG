@@ -12,24 +12,24 @@ export const metadata = createMetadata({
 
 const TRADEOFFS = [
   {
-    title: "Reliability over cleverness",
+    title: "Reliability > cleverness",
     description:
-      "A boring solution that works at 3 AM is better than an elegant one that breaks under edge cases. I bias toward explicit error handling, clear logging, and graceful degradation.",
+      "I'll take the boring solution that still works at 3 AM. I tend to favor explicit failure modes, clear logs, and systems that degrade gracefully instead of collapsing when something unexpected happens.",
   },
   {
     title: "Latency vs. accuracy",
     description:
-      "In robotics, you often can't have both. I think carefully about where approximate-but-fast beats precise-but-slow, and I design systems that let you tune this knob.",
+      "In robotics you usually can't have both. I like designing systems where you can tune the tradeoff — fast approximations by default, with more precise modes when accuracy actually matters.",
   },
   {
-    title: "Debuggability as a feature",
+    title: "Debuggability is a feature",
     description:
-      "If I can't reason about why a system did what it did, it's not done. I invest in structured logging, visualization tools, and replay-able pipelines — especially for perception and data-heavy systems.",
+      "If I can't explain why a system behaved the way it did, it isn't done yet. I try to build in traces, replayable pipelines, and tooling that makes failures easier to understand.",
   },
   {
-    title: "Simplicity at the interfaces",
+    title: "Simple interfaces, complex internals",
     description:
-      "Complex internals are fine. Complex interfaces are not. I design modules with simple, well-documented boundaries so teammates (and future me) can reason about them independently.",
+      "I'm fine with complexity inside a system. What matters is that the boundaries stay simple. Small, well-documented interfaces make systems easier to reason about and easier for other people to work with.",
   },
 ];
 
@@ -40,26 +40,26 @@ export default function AboutPage() {
       <SectionHeader label="About" title="Who I Am" />
       <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-16">
         <p>
-          I&apos;m a Computer Engineering senior at UMass Amherst, graduating in
+          I&apos;m a Computer Engineering senior at UMass Amherst, graduating
           Spring 2026. I got into engineering because I wanted to build things
-          that work in the physical world — not just on a screen. That pulled me
-          toward robotics and perception systems, where software has to survive
-          noisy sensors, real-time constraints, and the gap between simulation
-          and reality.
+          that work in the physical world — not just on a screen. That pulled
+          me toward robotics and perception systems, where software has to
+          survive noisy sensors, real-time constraints, and the gap between
+          simulation and reality.
         </p>
         <p>
-          Along the way, I developed a strong interest in systems software too:
-          distributed processing, data pipelines, and the infrastructure that
-          makes complex applications reliable. My best projects live at this
-          intersection — where you need both hardware intuition and software
-          engineering discipline.
+          Along the way I developed a strong interest in systems software too:
+          data pipelines, distributed processing, and the infrastructure that
+          makes complex applications reliable. My favorite projects tend to
+          live at that intersection — where hardware intuition and software
+          engineering discipline meet.
         </p>
         <p>
-          I&apos;ve worked in university research labs building sensor fusion
-          pipelines, taken on a senior capstone that involved flying drones
-          with hyperspectral cameras, and built systems-level side projects in
-          Go and Python. What ties it all together is a drive to understand
-          the full stack of a problem, from the physics to the deploy script.
+          I&apos;ve worked in university research labs building sensor-fusion
+          pipelines, taken on a senior capstone involving UAV hyperspectral
+          imaging, and built systems-level side projects in Go and Python.
+          What ties it all together is a curiosity about the whole stack of a
+          problem — from the physics to the deploy script.
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
       <SectionHeader
         label="Engineering Philosophy"
         title="How I Think About Tradeoffs"
-        description="These are the principles I come back to when making design decisions."
+        description="These are the tradeoffs I tend to think about when building systems."
       />
       <div className="grid gap-4 sm:grid-cols-2 mb-16">
         {TRADEOFFS.map(({ title, description }) => (
@@ -85,10 +85,10 @@ export default function AboutPage() {
       {/* Outside Engineering */}
       <SectionHeader label="Beyond Code" title="When I'm Not Engineering" />
       <p className="text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-8">
-        I play pickup basketball, tinker with mechanical keyboards, and
-        occasionally disappear into long Wikipedia rabbit holes about
-        space exploration history. I also enjoy cooking — it&apos;s the closest
-        thing to debugging a physical system in my kitchen.
+        When I&apos;m not working on engineering stuff, I&apos;m usually playing pickup
+        basketball, lifting, or cooking something new. I also tend to fall down
+        random internet rabbit holes whenever something technical catches my
+        interest.
       </p>
 
       {/* CTA */}

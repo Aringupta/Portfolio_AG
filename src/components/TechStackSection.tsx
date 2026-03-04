@@ -35,22 +35,10 @@ const TECH_STACK: TechItem[] = [
 
 export function TechStackSection() {
   return (
-    <section className="relative overflow-hidden" aria-label="Technology stack">
-      {/* Dotted grid background */}
-      <div
-        className="absolute inset-0 bg-[#0a0a0a]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Content */}
-      <div className="relative mx-auto max-w-5xl px-6 py-20 sm:py-24">
+    <section aria-label="Technology stack">
+      <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
         {/* Heading */}
-        <h2 className="text-center text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-14">
+        <h2 className="text-center text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary dark:text-dark-text-primary mb-14">
           Stacks That Make It{" "}
           <span
             className="inline-block px-4 py-1 rounded-lg text-white"
@@ -72,7 +60,7 @@ export function TechStackSection() {
               key={tech.name}
               className="group flex flex-col items-center gap-2 w-[calc(33.333%-12px)] sm:w-[calc(20%-14px)] lg:w-[calc(10%-14px)] transition-transform duration-200 hover:-translate-y-0.5"
             >
-              <div className="w-12 h-12 flex items-center justify-center rounded-lg transition-shadow duration-200 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.1)]">
+              <div className="w-12 h-12 flex items-center justify-center rounded-lg transition-shadow duration-200 group-hover:shadow-sm dark:group-hover:shadow-dark-sm">
                 <Image
                   src={tech.iconUrl}
                   alt={`${tech.name} logo`}
@@ -82,7 +70,7 @@ export function TechStackSection() {
                   unoptimized
                 />
               </div>
-              <span className="text-xs text-[#a3a3a3] text-center leading-tight transition-colors duration-200 group-hover:text-white">
+              <span className="text-xs text-text-muted dark:text-dark-text-muted text-center leading-tight transition-colors duration-200 group-hover:text-text-primary dark:group-hover:text-dark-text-primary">
                 {tech.name}
               </span>
             </div>

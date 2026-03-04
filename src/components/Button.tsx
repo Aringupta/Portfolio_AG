@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode, AnchorHTMLAttributes } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "icon";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -19,6 +19,8 @@ const variantStyles: Record<Variant, string> = {
     "bg-surface-2 text-text-primary border border-border hover:bg-border dark:bg-dark-surface-2 dark:text-dark-text-primary dark:border-dark-border dark:hover:bg-dark-border",
   ghost:
     "text-text-secondary hover:text-text-primary hover:bg-surface-2 dark:text-dark-text-secondary dark:hover:text-dark-text-primary dark:hover:bg-dark-surface-2",
+  icon:
+    "text-text-muted hover:text-text-primary hover:bg-surface-2 dark:text-dark-text-muted dark:hover:text-dark-text-primary dark:hover:bg-dark-surface-2",
 };
 
 const sizeStyles: Record<Size, string> = {

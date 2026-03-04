@@ -78,6 +78,28 @@ body::before {
   opacity: 0.3;
 }
 
+/* Hero background glow */
+.hero-glow {
+  position: relative;
+}
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, var(--color-accent-light) 0%, transparent 70%);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+.dark .hero-glow::before {
+  background: radial-gradient(ellipse at center, var(--color-dark-accent-light) 0%, transparent 70%);
+  opacity: 0.15;
+}
+
 /* Heading letter-spacing */
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;

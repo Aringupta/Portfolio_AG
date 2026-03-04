@@ -13,8 +13,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
         href={`/projects/${project.slug}`}
         className="block rounded-lg border border-border bg-surface-0 p-5
           shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]
+          hover:border-accent/30 hover:-translate-y-0.5
           dark:border-dark-border dark:bg-dark-surface-1
           dark:shadow-[var(--shadow-dark-sm)] dark:hover:shadow-[var(--shadow-dark-md)]
+          dark:hover:border-dark-accent/30
           transition-all duration-200 h-full"
       >
         <div className="flex flex-col h-full">
@@ -31,16 +33,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.title}
           </h3>
 
-          <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed flex-1">
+          <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary leading-relaxed flex-1 line-clamp-2">
             {project.summary}
           </p>
 
           <div className="mt-4 flex flex-wrap gap-1.5">
-            {project.tags.slice(0, 4).map((tag) => (
+            {project.tags.slice(0, 3).map((tag) => (
               <Badge key={tag}>{tag}</Badge>
             ))}
-            {project.tags.length > 4 && (
-              <Badge>{`+${project.tags.length - 4}`}</Badge>
+            {project.tags.length > 3 && (
+              <Badge>{`+${project.tags.length - 3}`}</Badge>
             )}
           </div>
 
